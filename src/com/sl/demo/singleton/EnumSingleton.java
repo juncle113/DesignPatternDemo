@@ -1,9 +1,22 @@
 package com.sl.demo.singleton;
 
-public enum EnumSingleton {
-    INSTANCE;
+public class EnumSingleton {
 
-    public void doSomeThing() {
+    private enum MyEnum {
+        enumFactory;
 
+        private EnumSingleton enumSingleton;
+
+        private MyEnum() {
+            enumSingleton = new EnumSingleton();
+        }
+
+        public EnumSingleton getInstance() {
+            return enumSingleton;
+        }
+    }
+
+    public static EnumSingleton getInstance() {
+        return MyEnum.enumFactory.getInstance();
     }
 }

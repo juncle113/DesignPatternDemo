@@ -14,7 +14,7 @@ public class LazySafetySingleton {
         return instance;
     }
 
-    public static  LazySafetySingleton getInstance2() {
+    public static LazySafetySingleton getInstance2() {
         synchronized(LazySafetySingleton.class) {
             if (instance == null) {
                 instance = new LazySafetySingleton();
